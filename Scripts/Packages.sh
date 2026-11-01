@@ -66,12 +66,6 @@ UPDATE_PACKAGE "noobwrt" "nooblk-98/luci-theme-noobwrt" "master"
 UPDATE_PACKAGE "shadcn" "eamonxg/luci-theme-shadcn" "main"
 UPDATE_PACKAGE "theme-fluent" "LazuliKao/luci-theme-fluent" "main"
 
-# 👇 官方默认主题（内置，无需拉取，仅固化到 .config）
-if [ -f .config ]; then
-	grep -q "CONFIG_PACKAGE_luci-theme-bootstrap" .config \
-		|| echo "CONFIG_PACKAGE_luci-theme-bootstrap=y" >> .config
-	sed -i 's/^# CONFIG_PACKAGE_luci-theme-bootstrap is not set/CONFIG_PACKAGE_luci-theme-bootstrap=y/' .config
-fi
 
 # ===================== 网络 / 代理 =====================
 UPDATE_PACKAGE "momo" "nikkinikki-org/OpenWrt-momo" "main"
